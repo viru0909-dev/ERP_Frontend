@@ -1,0 +1,487 @@
+/* Enhanced TrackApplicationPage.css with modern animations */
+
+@keyframes contentFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+    }
+}
+
+@keyframes successGlow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(34, 197, 94, 0.8);
+    }
+}
+
+@keyframes floatingIcon {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    75% {
+        transform: translateY(5px) rotate(-5deg);
+    }
+}
+
+@keyframes shimmerEffect {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.track-container {
+    max-width: 700px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    animation: contentFadeInUp 0.8s ease-out;
+}
+
+.track-card, .status-card, .welcome-card {
+    background: linear-gradient(145deg, 
+        rgba(30, 41, 59, 0.95), 
+        rgba(51, 65, 85, 0.90)
+    );
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.track-card {
+    animation: cardSlideIn 0.8s ease-out;
+}
+
+.status-card {
+    margin-top: 2rem;
+    animation: cardSlideIn 0.8s ease-out 0.2s both;
+}
+
+.welcome-card {
+    text-align: center;
+    animation: cardSlideIn 0.8s ease-out 0.1s both;
+}
+
+.track-card::before, .status-card::before, .welcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8b5cf6, #a855f7, #c084fc);
+    background-size: 200% 100%;
+    animation: shimmerEffect 3s ease infinite;
+}
+
+.track-card::after, .status-card::after, .welcome-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, 
+        transparent, 
+        rgba(139, 92, 246, 0.02), 
+        transparent
+    );
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+.track-card:hover, .status-card:hover, .welcome-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(139, 92, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.track-card h2, .welcome-card h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.status-header {
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.status-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8b5cf6, #a855f7);
+    transition: width 0.8s ease;
+}
+
+.status-card:hover .status-header::after {
+    width: 100%;
+}
+
+.status-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    z-index: 1;
+}
+
+.status-details p {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(226, 232, 240, 0.8);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(139, 92, 246, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.status-details p:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateX(5px);
+}
+
+.status-details span {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    position: relative;
+    animation: statusPulse 2s infinite;
+    transition: all 0.3s ease;
+}
+
+.status-badge:hover {
+    transform: scale(1.1);
+}
+
+.status-badge.pending {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #451a03;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+}
+
+.status-badge.approved {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.status-badge.rejected {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Welcome Card Specific Styles */
+.welcome-icon {
+    font-size: 5rem;
+    line-height: 1;
+    color: #22c55e;
+    animation: floatingIcon 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.welcome-card h2 {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: successGlow 2s infinite;
+}
+
+.welcome-card p {
+    color: rgba(226, 232, 240, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.password-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.1), 
+        rgba(168, 85, 247, 0.1)
+    );
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.password-display::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(139, 92, 246, 0.1),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.password-display:hover::before {
+    left: 100%;
+}
+
+.password-display:hover {
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.15), 
+        rgba(168, 85, 247, 0.15)
+    );
+    border-color: rgba(139, 92, 246, 0.5);
+    transform: scale(1.02);
+}
+
+.password-text {
+    font-family: 'Courier New', monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #a855f7;
+    background: rgba(139, 92, 246, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.copy-btn {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.1), 
+        rgba(168, 85, 247, 0.1)
+    );
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.copy-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.copy-btn:hover::before {
+    left: 100%;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.2), 
+        rgba(168, 85, 247, 0.2)
+    );
+    border-color: rgba(139, 92, 246, 0.6);
+    transform: translateY(-2px) scale(1.05);
+    color: white;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+.copy-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Form Input Enhancements */
+.track-card input[type="text"], 
+.track-card input[type="email"] {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: rgba(139, 92, 246, 0.05);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.track-card input[type="text"]:focus, 
+.track-card input[type="email"]:focus {
+    outline: none;
+    border-color: rgba(139, 92, 246, 0.6);
+    background: rgba(139, 92, 246, 0.1);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    transform: scale(1.02);
+}
+
+.track-card label {
+    color: rgba(226, 232, 240, 0.8);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Button Enhancements */
+.track-card button[type="submit"] {
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.track-card button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.track-card button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+.track-card button[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.5);
+    background: linear-gradient(135deg, #7c3aed, #9333ea);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .track-container {
+        margin: 2rem auto;
+        padding: 0 0.5rem;
+    }
+    
+    .track-card, .status-card, .welcome-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .welcome-icon {
+        font-size: 4rem;
+    }
+    
+    .password-display {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .password-text {
+        font-size: 1.2rem;
+    }
+}

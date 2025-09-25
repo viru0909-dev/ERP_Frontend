@@ -1,0 +1,108 @@
+/* src/styles/StaffList.css */
+.staff-list-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.staff-list-container h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--color-text-primary);
+}
+
+.staff-table-wrapper {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.staff-table th, .staff-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.staff-table th {
+    background-color: #f8fafc; /* slate-50 */
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+.staff-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.staff-table tbody tr:hover {
+    background-color: #f1f5f9; /* slate-100 */
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+/* Add these new styles to the bottom of your existing StaffList.css file */
+
+.actions-column {
+    text-align: right;
+    width: 1%;
+}
+
+.remove-button {
+    background-color: #fee2e2; /* light red */
+    color: #991b1b; /* dark red */
+    border: 1px solid #fecaca; /* lighter red */
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.remove-button:hover {
+    background-color: #ef4444; /* red-500 */
+    color: white;
+}
+
+/* You can also add these message styles if they aren't global yet */
+.message {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+.message.success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+.message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+.filter-container {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-container label {
+    font-weight: 600;
+}
+
+.filter-container select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+}

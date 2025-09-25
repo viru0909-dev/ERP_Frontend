@@ -1,0 +1,473 @@
+/* Enhanced StudentProgressionPage.css with modern animations */
+
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardHoverGlow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4);
+    }
+}
+
+@keyframes accordionSlide {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+    }
+}
+
+@keyframes shimmerLoader {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.progression-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: contentFadeIn 0.8s ease-out;
+}
+
+.progression-container h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.progression-container h1::after {
+    content: '📈';
+    position: absolute;
+    top: -5px;
+    right: -40px;
+    font-size: 2rem;
+    animation: contentFadeIn 1s ease-out 0.5s both;
+}
+
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.class-card {
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    background: linear-gradient(145deg, 
+        rgba(30, 41, 59, 0.95), 
+        rgba(51, 65, 85, 0.90)
+    );
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    animation: contentFadeIn 0.6s ease-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.class-card:nth-child(2) { animation-delay: 0.1s; }
+.class-card:nth-child(3) { animation-delay: 0.2s; }
+.class-card:nth-child(4) { animation-delay: 0.3s; }
+
+.class-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8b5cf6, #a855f7, #c084fc);
+    background-size: 200% 100%;
+    animation: shimmerLoader 3s ease infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.class-card:hover::before {
+    opacity: 1;
+}
+
+.class-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, 
+        rgba(139, 92, 246, 0.05) 0%, 
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.class-card:hover::after {
+    opacity: 1;
+}
+
+.class-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: rgba(139, 92, 246, 0.6);
+    animation: cardHoverGlow 2s infinite;
+}
+
+.class-card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.class-card:hover h3 {
+    background: linear-gradient(135deg, #ffffff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.class-card p {
+    color: rgba(226, 232, 240, 0.8);
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.class-card:hover p {
+    color: rgba(226, 232, 240, 0.95);
+}
+
+.student-list-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(145deg, 
+        rgba(15, 23, 42, 0.8), 
+        rgba(30, 41, 59, 0.8)
+    );
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    animation: accordionSlide 0.6s ease-out;
+}
+
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion-item {
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(145deg, 
+        rgba(30, 41, 59, 0.95), 
+        rgba(51, 65, 85, 0.90)
+    );
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    animation: contentFadeIn 0.6s ease-out;
+}
+
+.accordion-item:nth-child(2) { animation-delay: 0.1s; }
+.accordion-item:nth-child(3) { animation-delay: 0.2s; }
+.accordion-item:nth-child(4) { animation-delay: 0.3s; }
+
+.accordion-item:hover {
+    border-color: rgba(139, 92, 246, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+}
+
+.accordion-header {
+    width: 100%;
+    background: transparent;
+    padding: 1.5rem 2rem;
+    border: none;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.accordion-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(139, 92, 246, 0.1),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.accordion-header:hover::before {
+    left: 100%;
+}
+
+.accordion-header:hover {
+    background: rgba(139, 92, 246, 0.1);
+    color: white;
+}
+
+.accordion-header .icon {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+    color: #8b5cf6;
+}
+
+.accordion-header[aria-expanded="true"] .icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 2rem;
+    background: rgba(15, 23, 42, 0.6);
+    animation: accordionSlide 0.4s ease-out;
+}
+
+.table-actions {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.table-actions button {
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.table-actions button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.table-actions button:hover::before {
+    left: 100%;
+}
+
+.table-actions button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+    animation: buttonPulse 1.5s infinite;
+}
+
+.table-actions button:disabled {
+    background: linear-gradient(135deg, #64748b, #475569);
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+    animation: none;
+}
+
+.table-actions button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Enhanced Table Styles */
+.progression-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.progression-table th {
+    background: rgba(139, 92, 246, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.progression-table td {
+    padding: 1rem 1.5rem;
+    color: rgba(226, 232, 240, 0.8);
+    border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+    transition: all 0.3s ease;
+}
+
+.progression-table tbody tr {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.progression-table tbody tr:hover {
+    background: rgba(139, 92, 246, 0.1);
+    transform: translateX(5px);
+}
+
+.progression-table tbody tr:hover td {
+    color: rgba(226, 232, 240, 0.95);
+}
+
+/* Status badges for progression */
+.progression-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.progression-status.promoted {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.progression-status.retained {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.progression-status.pending {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .progression-container {
+        padding: 1rem;
+    }
+    
+    .progression-container h1 {
+        font-size: 2rem;
+    }
+    
+    .progression-container h1::after {
+        right: -30px;
+        font-size: 1.5rem;
+    }
+    
+    .class-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .class-card {
+        padding: 1.5rem;
+    }
+    
+    .student-list-container {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .accordion-header {
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .accordion-content {
+        padding: 1.5rem;
+    }
+    
+    .table-actions {
+        flex-direction: column;
+    }
+    
+    .table-actions button {
+        width: 100%;
+    }
+    
+    .progression-table {
+        font-size: 0.9rem;
+    }
+    
+    .progression-table th,
+    .progression-table td {
+        padding: 0.75rem;
+    }
+}

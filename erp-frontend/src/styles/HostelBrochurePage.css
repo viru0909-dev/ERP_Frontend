@@ -1,0 +1,23 @@
+/* Create new file: src/styles/HostelBrochurePage.css */
+.brochure-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.brochure-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+}
+.brochure-card h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+.brochure-card ul, .brochure-card ol {
+    padding-left: 20px;
+    line-height: 1.8;
+}

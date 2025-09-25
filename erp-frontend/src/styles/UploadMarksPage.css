@@ -1,0 +1,660 @@
+/* Enhanced UploadMarksPage.css with CRAZY futuristic animations and effects */
+
+/* ===== ADVANCED KEYFRAME ANIMATIONS ===== */
+@keyframes quantumDataFlow {
+  0% { transform: translateX(-100%) scaleY(0.3); opacity: 0; }
+  50% { opacity: 1; transform: scaleY(1); }
+  100% { transform: translateX(200vw) scaleY(0.3); opacity: 0; }
+}
+
+@keyframes holographicPulse {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px rgba(99, 102, 241, 0.3),
+      0 0 40px rgba(99, 102, 241, 0.1),
+      inset 0 0 20px rgba(99, 102, 241, 0.05);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px rgba(139, 92, 246, 0.5),
+      0 0 60px rgba(139, 92, 246, 0.2),
+      inset 0 0 30px rgba(139, 92, 246, 0.1);
+  }
+}
+
+@keyframes gradeCalculation {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.05) rotate(2deg); }
+  50% { transform: scale(1.1) rotate(-2deg); }
+  75% { transform: scale(1.05) rotate(1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes scoreBeam {
+  0% { transform: translateY(100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes uploadProgress {
+  0% { width: 0%; }
+  100% { width: var(--upload-progress, 100%); }
+}
+
+@keyframes neonScanLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300px); }
+}
+
+@keyframes digitalMatrix {
+  0% { transform: translateY(-100vh); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes glitchFlicker {
+  0%, 90%, 100% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+}
+
+/* ===== MAIN CONTAINER ===== */
+.upload-marks-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  animation: slideInFromTop 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Futuristic background effects */
+.upload-marks-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(6, 182, 212, 0.03) 0%, rgba(16, 185, 129, 0.03) 100%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Data stream background */
+.upload-marks-container::after {
+  content: '95% 87% 92% 78% 88% 91% 85% 94% 89% 96%';
+  position: fixed;
+  top: 20%;
+  left: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: rgba(99, 102, 241, 0.1);
+  white-space: nowrap;
+  animation: quantumDataFlow 18s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== ENHANCED TITLE ===== */
+.upload-marks-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 400% 400%;
+  animation: gradientShift 5s ease infinite;
+  text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+  position: relative;
+}
+
+.upload-marks-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+  border-radius: 2px;
+  animation: neonScanLine 2s ease-in-out infinite;
+}
+
+/* ===== ENHANCED CONTROLS GRID ===== */
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  background: 
+    linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(51, 65, 85, 0.90)),
+    radial-gradient(circle at 30% 70%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  animation: holographicPulse 4s ease-in-out infinite;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 100px rgba(99, 102, 241, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.controls-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    #6366f1 0%, 
+    #8b5cf6 25%, 
+    #a855f7 50%, 
+    #c084fc 75%, 
+    #6366f1 100%);
+  background-size: 400% 100%;
+  animation: gradientShift 4s ease infinite;
+}
+
+.controls-grid::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -100px;
+  width: 100px;
+  height: calc(100% + 4px);
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(139, 92, 246, 0.3) 50%, 
+    transparent 100%);
+  animation: neonScanLine 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ===== ENHANCED FORM GROUPS ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid rgba(100, 116, 139, 0.3);
+  border-radius: 15px;
+  font-size: 1rem;
+  background: 
+    rgba(15, 23, 42, 0.6),
+    linear-gradient(45deg, transparent 30%, rgba(99, 102, 241, 0.03) 70%);
+  color: #f8fafc;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  font-family: inherit;
+  backdrop-filter: blur(15px);
+  position: relative;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: rgba(15, 23, 42, 0.8);
+  box-shadow: 
+    0 0 0 3px rgba(99, 102, 241, 0.2),
+    0 0 30px rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-group select option {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 0.5rem;
+}
+
+/* ===== ENHANCED MARKS TABLE WRAPPER ===== */
+.marks-table-wrapper {
+  background: 
+    linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(51, 65, 85, 0.90)),
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 2.5rem;
+  border-radius: 25px;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  position: relative;
+  overflow: hidden;
+  animation: holographicPulse 5s ease-in-out infinite;
+  animation-delay: 1s;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 100px rgba(99, 102, 241, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.marks-table-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+  background-size: 300% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.marks-table-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(0deg, transparent, #8b5cf6, transparent);
+  animation: scoreBeam 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ===== ENHANCED TABLE STYLES ===== */
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.staff-table th,
+.staff-table td {
+  padding: 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.staff-table th {
+  background: rgba(15, 23, 42, 0.6);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.staff-table th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6366f1, transparent);
+  animation: neonScanLine 4s ease-in-out infinite;
+}
+
+.staff-table tbody tr {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.staff-table tbody tr::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(139, 92, 246, 0.1) 50%, 
+    transparent 100%);
+  transition: left 0.6s ease;
+  z-index: 0;
+}
+
+.staff-table tbody tr:hover::before {
+  left: 100%;
+}
+
+.staff-table tbody tr:hover {
+  background: rgba(15, 23, 42, 0.6);
+  transform: translateX(8px) translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(99, 102, 241, 0.1);
+}
+
+.staff-table tbody tr:hover td {
+  color: #f8fafc;
+  text-shadow: 0 0 10px rgba(248, 250, 252, 0.3);
+}
+
+/* ===== ENHANCED MARKS INPUT ===== */
+.marks-input {
+  width: 120px;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: 2px solid rgba(100, 116, 139, 0.4);
+  border-radius: 12px;
+  background: 
+    rgba(15, 23, 42, 0.8),
+    linear-gradient(45deg, transparent 30%, rgba(99, 102, 241, 0.05) 70%);
+  color: #f8fafc;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(15px);
+  position: relative;
+  z-index: 1;
+}
+
+.marks-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 
+    0 0 0 3px rgba(99, 102, 241, 0.3),
+    0 0 20px rgba(99, 102, 241, 0.2);
+  transform: scale(1.05);
+  animation: gradeCalculation 0.6s ease-out;
+}
+
+.marks-input::placeholder {
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ===== ENHANCED SUBMIT BUTTON ===== */
+.submit-button {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(99, 102, 241, 0.4),
+    0 0 60px rgba(99, 102, 241, 0.1);
+}
+
+.submit-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.8s, height 0.8s;
+  z-index: 0;
+}
+
+.submit-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  transition: left 0.8s ease;
+  z-index: 0;
+}
+
+.submit-button:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.submit-button:hover::after {
+  left: 100%;
+}
+
+.submit-button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 15px 40px rgba(99, 102, 241, 0.5),
+    0 0 80px rgba(99, 102, 241, 0.2);
+  animation: holographicPulse 2s ease-in-out infinite;
+}
+
+.submit-button:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
+.submit-button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== ENHANCED MESSAGE STYLES ===== */
+.message {
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  animation: slideInFromTop 0.4s ease-out;
+  backdrop-filter: blur(15px);
+  border: 2px solid;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 100%);
+  animation: neonScanLine 2s ease-in-out infinite;
+}
+
+.message.success {
+  background: 
+    rgba(34, 197, 94, 0.15),
+    radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 
+    0 0 30px rgba(34, 197, 94, 0.2),
+    inset 0 0 20px rgba(34, 197, 94, 0.1);
+}
+
+.message.error {
+  background: 
+    rgba(239, 68, 68, 0.15),
+    radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.1) 0%, transparent 50%);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 
+    0 0 30px rgba(239, 68, 68, 0.2),
+    inset 0 0 20px rgba(239, 68, 68, 0.1);
+  animation: glitchFlicker 0.5s ease-out;
+}
+
+/* ===== LOADING STATES ===== */
+.upload-marks-container.processing {
+  pointer-events: none;
+}
+
+.upload-marks-container.processing .marks-table-wrapper {
+  opacity: 0.7;
+  animation: holographicPulse 1.5s ease-in-out infinite;
+}
+
+.upload-marks-container.processing .submit-button {
+  background: linear-gradient(135deg, #64748b, #475569);
+  cursor: not-allowed;
+}
+
+/* ===== PROGRESS INDICATOR ===== */
+.upload-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(100, 116, 139, 0.3);
+  z-index: 9999;
+}
+
+.upload-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+  animation: uploadProgress 2s ease-out;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .upload-marks-container {
+    padding: 1rem;
+  }
+  
+  .controls-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .marks-table-wrapper {
+    padding: 1.5rem;
+    overflow-x: auto;
+  }
+  
+  .staff-table {
+    min-width: 600px;
+  }
+  
+  .marks-input {
+    width: 100px;
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+  
+  .submit-button {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-marks-container h1 {
+    font-size: 2rem;
+  }
+  
+  .controls-grid {
+    padding: 1rem;
+  }
+  
+  .marks-table-wrapper {
+    padding: 1rem;
+  }
+  
+  .staff-table th,
+  .staff-table td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .marks-input {
+    width: 80px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .upload-marks-container,
+  .controls-grid,
+  .marks-table-wrapper,
+  .controls-grid::before,
+  .controls-grid::after,
+  .marks-table-wrapper::before,
+  .marks-table-wrapper::after,
+  .staff-table tbody tr::before,
+  .submit-button::before,
+  .submit-button::after,
+  .message::before {
+    animation: none !important;
+  }
+  
+  .controls-grid,
+  .marks-table-wrapper {
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+  }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+  .controls-grid,
+  .marks-table-wrapper {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .form-group select,
+  .form-group input,
+  .marks-input {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .submit-button {
+    background: #6366f1;
+    border: 2px solid #8b5cf6;
+  }
+}

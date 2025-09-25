@@ -1,0 +1,346 @@
+/* Enhanced Manage Timetables Page CSS */
+
+@keyframes contentFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gridFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.timetable-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: contentFadeInUp 0.6s ease-out;
+}
+
+.timetable-container h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.timetable-controls {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.timetable-controls label {
+  font-weight: 700;
+  font-size: 14px;
+  color: #f1f5f9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timetable-controls select {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  min-width: 280px;
+  font-size: 16px;
+  background: rgba(15, 23, 42, 0.6);
+  color: #f8fafc;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.timetable-controls select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.timetable-grid {
+  display: grid;
+  grid-template-columns: 120px repeat(5, 1fr);
+  gap: 12px;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  animation: gridFadeIn 0.8s ease-out 0.3s backwards;
+}
+
+.timetable-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+}
+
+.grid-header {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 8px;
+  padding: 16px 8px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #94a3b8;
+  letter-spacing: 0.8px;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.4), transparent);
+}
+
+.time-slot {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.grid-cell {
+  background: rgba(15, 23, 42, 0.3);
+  min-height: 100px;
+  border-radius: 10px;
+  border: 2px dashed rgba(100, 116, 139, 0.3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-cell:hover::before {
+  opacity: 1;
+}
+
+.grid-cell:hover {
+  background: rgba(15, 23, 42, 0.5);
+  border-color: rgba(139, 92, 246, 0.6);
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+}
+
+.slot-card {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.1));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.slot-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+}
+
+.slot-card:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.15));
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+}
+
+.slot-details p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.slot-details span {
+  display: block;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.slot-classroom {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6366f1;
+  align-self: flex-end;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.take-attendance-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 11px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  text-decoration: none;
+}
+
+.take-attendance-btn:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .timetable-container {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .timetable-grid {
+    grid-template-columns: 100px repeat(5, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timetable-container {
+    padding: 1rem;
+  }
+  
+  .timetable-container h1 {
+    font-size: 24px;
+  }
+  
+  .timetable-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .timetable-controls select {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .timetable-grid {
+    grid-template-columns: 80px 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+  
+  .grid-header {
+    padding: 12px 4px;
+    font-size: 10px;
+  }
+  
+  .time-slot {
+    font-size: 11px;
+  }
+  
+  .grid-cell {
+    min-height: 80px;
+    padding: 8px;
+  }
+  
+  .slot-details p {
+    font-size: 12px;
+  }
+  
+  .slot-details span {
+    font-size: 10px;
+  }
+  
+  .slot-classroom {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  
+  .take-attendance-btn {
+    padding: 6px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timetable-grid {
+    grid-template-columns: 60px 1fr;
+    gap: 6px;
+  }
+  
+  .time-slot {
+    font-size: 9px;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+  }
+  
+  .grid-cell {
+    min-height: 60px;
+    padding: 6px;
+  }
+}

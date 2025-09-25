@@ -1,0 +1,428 @@
+/* Enhanced ViewAttendancePage.css with modern animations */
+
+@keyframes contentFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 50px rgba(139, 92, 246, 0.9);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatingAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes tableRowSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes statusBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.view-attendance-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: contentFadeInUp 0.8s ease-out;
+}
+
+.view-attendance-container h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  text-align: center;
+  position: relative;
+}
+
+.view-attendance-container h1::after {
+  content: '📊';
+  position: absolute;
+  top: -10px;
+  right: -40px;
+  font-size: 2rem;
+  animation: floatingAnimation 3s ease-in-out infinite;
+}
+
+.attendance-summary {
+  background: linear-gradient(145deg, 
+    rgba(30, 41, 59, 0.95), 
+    rgba(51, 65, 85, 0.90)
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 25px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: contentFadeInUp 0.8s ease-out 0.2s both;
+}
+
+.attendance-summary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+  background-size: 300% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.attendance-summary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg at 50% 50%, 
+    transparent, 
+    rgba(139, 92, 246, 0.03), 
+    transparent, 
+    rgba(99, 102, 241, 0.03), 
+    transparent
+  );
+  animation: rotate 25s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.attendance-summary:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(99, 102, 241, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.attendance-summary h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  position: relative;
+  z-index: 1;
+}
+
+.attendance-percentage {
+  font-size: 5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  line-height: 1;
+  animation: pulseGlow 3s infinite;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.attendance-details {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  font-weight: 500;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.attendance-table-wrapper {
+  background: linear-gradient(145deg, 
+    rgba(30, 41, 59, 0.95), 
+    rgba(51, 65, 85, 0.90)
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  position: relative;
+  margin-top: 2rem;
+  animation: contentFadeInUp 0.8s ease-out 0.4s both;
+}
+
+.attendance-table-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+  background-size: 300% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.attendance-table th {
+  background: rgba(15, 23, 42, 0.8);
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+  position: relative;
+}
+
+.attendance-table th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(139, 92, 246, 0.4), 
+    transparent
+  );
+}
+
+.attendance-table td {
+  padding: 1.5rem;
+  color: #e2e8f0;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.attendance-table tbody tr {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  animation: tableRowSlide 0.6s ease-out;
+}
+
+.attendance-table tbody tr:nth-child(2) { animation-delay: 0.1s; }
+.attendance-table tbody tr:nth-child(3) { animation-delay: 0.2s; }
+.attendance-table tbody tr:nth-child(4) { animation-delay: 0.3s; }
+
+.attendance-table tbody tr::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(99, 102, 241, 0.2), 
+    rgba(139, 92, 246, 0.1)
+  );
+  transition: width 0.4s ease;
+}
+
+.attendance-table tbody tr:hover::before {
+  width: 6px;
+}
+
+.attendance-table tbody tr:hover {
+  background: rgba(15, 23, 42, 0.8);
+  transform: translateX(10px) scale(1.01);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.attendance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status-present {
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.2), 
+    rgba(16, 185, 129, 0.2)
+  );
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  animation: statusBounce 2s infinite;
+}
+
+.status-present::before {
+  content: '✓';
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.status-absent {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.2), 
+    rgba(220, 38, 38, 0.2)
+  );
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  animation: statusBounce 2s infinite;
+}
+
+.status-absent::before {
+  content: '✗';
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Enhanced loading state */
+.attendance-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: rgba(226, 232, 240, 0.8);
+}
+
+.attendance-loading::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-left: 1rem;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .view-attendance-container {
+    padding: 1rem;
+  }
+  
+  .view-attendance-container h1 {
+    font-size: 2rem;
+  }
+  
+  .view-attendance-container h1::after {
+    right: -30px;
+    font-size: 1.5rem;
+  }
+  
+  .attendance-summary {
+    padding: 2rem 1.5rem;
+  }
+  
+  .attendance-percentage {
+    font-size: 3rem;
+  }
+  
+  .attendance-summary h2 {
+    font-size: 1.4rem;
+  }
+  
+  .attendance-details {
+    font-size: 1rem;
+  }
+  
+  .attendance-table th,
+  .attendance-table td {
+    padding: 1rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .attendance-table-wrapper {
+    overflow-x: auto;
+    border-radius: 15px;
+  }
+  
+  .attendance-table {
+    min-width: 600px;
+  }
+}
