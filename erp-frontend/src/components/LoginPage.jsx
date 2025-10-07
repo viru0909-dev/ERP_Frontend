@@ -4,6 +4,9 @@ import axios from 'axios';
 import { useAuth } from '../AuthContext.jsx';
 import '../styles/LoginPage.css';
 
+// CHANGE 1: Get the API base URL from the environment variable.
+const API_URL = import.meta.env.VITE_API_BASE_URL;
+
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,7 +18,8 @@ const LoginPage = () => {
         e.preventDefault();
         setError('');
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
+            // CHANGE 2: Use the API_URL variable to build the full request URL.
+            const response = await axios.post(`${API_URL}/api/auth/login`, { email, password });
             if (response.data && response.data.token) {
                 login(response.data.token);
             } else {
